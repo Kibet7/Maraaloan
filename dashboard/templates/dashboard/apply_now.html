@@ -1,0 +1,81 @@
+{% extends "dashboard/layout.html" %}
+{% load static %}
+{% block title %}Apply Now{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard/style.css' %}">
+<style>
+    .form-section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .form-section h3 {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="application-form-container">
+    <h1 class="display-5 text-center">Apply for a Loan</h1>
+    <p class="text-center">Fill in the details below to apply for a loan.</p>
+
+    <form action="{% url 'apply_now' %}" method="POST" class="application-form" id="loan-application-form">
+        {% csrf_token %}
+
+        <!-- Borrower's Personal Details -->
+        <div class="form-section" id="borrower-section">
+            <h3>Personal Details</h3>
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_amount">Loan Amount (KES)</label>
+                <input type="number" id="loan_amount" name="loan_amount" class="form-control" placeholder="Enter the loan amount" required>
+            </div>
+
+            <div class="form-group">
+                <label for="loan_duration">Loan Duration (Months)</label>
+                <input type="number" id="loan_duration" name="loan_duration" class="form-control" placeholder="Enter the loan duration" required>
+            </div>
+
+            <div class="form-group">
+                <label for="employment_status">Employment Status</label>
+                <select id="employment_status" name="employment_status" class="form-control" required>
+                    <option value="Employed">Employed</option>
+                    <option value="Self-Employed">Self-Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="id_number">National ID/Passport Number</label>
+                <input type="text" id="id_number" name="id_number" class="form-control" placeholder="Enter your ID/Passport number" required>
+            </div>
+        </div>
+
+        <!-- Submit Section -->
+        <div class="form-section" id="submit-section">
+            <h3>Submit Application</h3>
+            <p>By submitting this application, you agree to our <a href="#">terms and conditions</a>.</p>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

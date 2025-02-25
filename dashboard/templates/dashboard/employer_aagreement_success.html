@@ -1,0 +1,12 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<div class="container text-center py-5">
+    <div class="alert alert-success" role="alert">
+        <h1 class="display-4">Submission Successful!</h1>
+        <p>Your employer agreement has been submitted successfully. Thank you for completing this step.</p>
+        <hr>
+        <p>If you have any questions, please contact our support team.</p>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary mt-3">Go to Dashboard</a>
+    </div>
+</div>
+{% endblock %}

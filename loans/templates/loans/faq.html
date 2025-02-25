@@ -1,0 +1,168 @@
+{% extends "loans/layout.html" %}
+{% load static %}
+{% block title %}Frequently Asked Questions | Mara Loans{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard/style.css' %}">
+<style>
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 faq-container">
+    <h1>Frequently Asked Questions (FAQ)</h1>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(1)">1. What is Mara Loans?</div>
+        <div class="faq-answer" id="answer1">
+            Rusonik Loans is a financial service provider offering quick and flexible loan options to individuals and businesses with easy application processes and affordable interest rates.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(2)">2. How do I apply for a loan?</div>
+        <div class="faq-answer" id="answer2">
+            You can apply for a loan directly on our website by filling out the loan application form and submitting the required documents.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(3)">3. What types of loans does Mara Loans offer?</div>
+        <div class="faq-answer" id="answer3">
+            We offer personal loans, business loans, and emergency loans, all designed to cater to different needs and purposes.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(4)">4. What are the requirements for applying for a loan?</div>
+        <div class="faq-answer" id="answer4">
+            To apply for a loan, you will need to provide identification documents, proof of income, and a valid bank account.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(5)">5. How long does it take to get approved?</div>
+        <div class="faq-answer" id="answer5">
+            Loan approval typically takes 24 to 48 hours, depending on the completeness of your application and the type of loan.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(6)">6. What is the interest rate on loans?</div>
+        <div class="faq-answer" id="answer6">
+            Our interest rates are competitive and vary depending on the loan type. You will be notified of the exact rate upon approval.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(7)">7. Can I repay my loan early?</div>
+        <div class="faq-answer" id="answer7">
+            Yes, you can repay your loan early without any penalties. Early repayment may even reduce the total interest paid.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(8)">8. How do I check the status of my loan application?</div>
+        <div class="faq-answer" id="answer8">
+            You can check the status of your loan application by logging into your account or contacting our customer support team.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(9)">9. How do I make loan repayments?</div>
+        <div class="faq-answer" id="answer9">
+            Repayments can be made via bank transfer, mobile money, or in-person at our branches. Detailed instructions will be provided upon approval.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(10)">10. Can I apply for a loan if I have bad credit?</div>
+        <div class="faq-answer" id="answer10">
+            Yes, we offer loans to individuals with less-than-perfect credit. Your application will still be considered based on other factors like income and repayment history.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(11)">11. Is there an age limit for loan applicants?</div>
+        <div class="faq-answer" id="answer11">
+            Applicants must be between the ages of 18 and 65 to qualify for a loan.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(12)">12. Can I apply for a loan if I am self-employed?</div>
+        <div class="faq-answer" id="answer12">
+            Yes, self-employed individuals are eligible for loans. You will need to provide proof of your business income.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(13)">13. What happens if I miss a loan repayment?</div>
+        <div class="faq-answer" id="answer13">
+            Missing a repayment may result in late fees and affect your credit score. It's important to inform us in case of any issues with payment.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(14)">14. Can I apply for a loan if I am not employed?</div>
+        <div class="faq-answer" id="answer14">
+            Yes, you may qualify for a loan if you have other sources of income, such as savings or investment returns.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(15)">15. How is my loan eligibility determined?</div>
+        <div class="faq-answer" id="answer15">
+            Loan eligibility is determined by factors such as income, credit history, loan type, and repayment capacity.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(16)">16. How do I contact Mara Loans customer support?</div>
+        <div class="faq-answer" id="answer16">
+            You can contact customer support through email, phone, or live chat available on our website.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(17)">17. Are there any hidden fees associated with the loans?</div>
+        <div class="faq-answer" id="answer17">
+            There are no hidden fees. All fees and charges are disclosed during the loan application process.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(18)">18. Can I use my loan for any purpose?</div>
+        <div class="faq-answer" id="answer18">
+            Yes, our loans are flexible and can be used for a variety of purposes including personal expenses, business expansion, and more.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(19)">19. How do I apply for a top-up loan?</div>
+        <div class="faq-answer" id="answer19">
+            You can apply for a top-up loan after completing your initial loan repayment. The process is similar to applying for a new loan.
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleAnswer(20)">20. Is Mara Loans available outside my country?</div>
+        <div class="faq-answer" id="answer20">
+            Currently, we provide loans within Kenya, and we are working on expanding our services to other countries in the near future.
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleAnswer(id) {
+        var answer = document.getElementById('answer' + id);
+        if (answer.style.display === "none" || answer.style.display === "") {
+            answer.style.display = "block";
+        } else {
+            answer.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

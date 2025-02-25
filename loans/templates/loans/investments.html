@@ -1,0 +1,33 @@
+<!-- templates/loans/investments.html -->
+{% extends 'loans/layout.html' %}
+
+{% block title %}Investments - Mara Loans{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">Mara Finance Investments</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Grow Your Money with Mara Investments</h3>
+            <p>Rusonik Investments is perfect for individuals looking to grow their capital. Invest from as little as KES 50,000 with guaranteed returns over fixed terms.</p>
+            <h4>How You Will Benefit:</h4>
+            <ul>
+                <li>Start investing with as little as KES 50,000</li>
+                <li>Choose a fixed period of 1 to 5 years</li>
+                <li>Earn 2% monthly compounded interest and 24% annually</li>
+                <li>Access to local and international investors</li>
+                <li>Boost your credit limit with your investment</li>
+                <li>Top-up your investment at any time</li>
+                <li>Receive monthly e-statements</li>
+                <li>Better interest rates than a savings account</li>
+                <li>Easy and convenient application process</li>
+                <li>Guaranteed returns on your investment</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-success">Invest Now</a>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/img5.jpeg' %}" alt="Mara Finance Investment Image" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+{% endblock %}

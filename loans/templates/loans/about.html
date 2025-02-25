@@ -1,0 +1,41 @@
+{% extends 'loans/layout.html' %}
+{% load static %}
+{% block title %}About Us - Loan Application{% endblock %}
+
+{% block content %}
+    <section class="about-section py-5" style="background-color: #f0f8ff;">
+        <div class="container">
+            <h1 class="display-4 text-center" style="color: #00FFFF;">About Us</h1>
+            <p class="lead text-center mb-4">At Mara Loans, we strive to provide seamless, fast, and secure loan application services to empower individuals and businesses to reach their financial goals. Our focus is to offer transparency, simplicity, and security throughout the loan process.</p>
+
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h3 style="color: #00FFFF;">Our Mission</h3>
+                    <p>Our mission is to transform the loan industry by offering fast and easy loan applications. With a strong commitment to simplicity and trust, we make it our priority to ensure an accessible, efficient, and secure loan application process for all our clients.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="color: #00FFFF;">Why Choose Us?</h3>
+                    <ul>
+                        <li>Fast and hassle-free loan applications</li>
+                        <li>Real-time tracking of loan status</li>
+                        <li>Flexible payment plans tailored to your financial needs</li>
+                        <li>Robust security measures to safeguard your personal data</li>
+                        <li>Outstanding customer support available 24/7</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="lead">Join the thousands of satisfied clients who have trusted Rusonik Loans for their financial needs. We are here to help you every step of the way!</p>
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="{% url 'home' %}" class="btn btn-primary btn-custom">Back to Home</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}

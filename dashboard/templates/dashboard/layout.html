@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/dashboard/style.css' %}">
+</head>
+
+<body>
+    <!-- Top Bar -->
+    <header class="top-bar d-flex justify-content-between align-items-center p-3">
+        <div class="d-flex align-items-center">
+            <!-- Hamburger Menu Icon -->
+            <button id="toggleNavigation" class="hamburger-menu me-2" style="background-color: aqua;">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <!-- Rusonik Loans Icon -->
+            <a href="{% url 'dashboard' %}" class="home-icon d-flex align-items-center" style="margin-left: 60px;">
+                <img src="{% static 'images/logo.png' %}" alt="Mara Loans" width="130" height="40" class="me-2">
+            </a>
+        </div>
+
+        <!-- Search Bar and User Info -->
+        <div class="d-flex align-items-center">
+            <!-- Search Bar -->
+            <form class="search-bar d-flex align-items-center me-3" role="search">
+                <input class="search-input form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="search-button btn" type="submit" style="background-color: aqua;">Search</button>
+            </form>
+
+            <!-- User Dropdown -->
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                   data-bs-toggle="dropdown" aria-expanded="false" style="background-color: aqua;">
+                    Hi, {{ request.user.username }}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                    <li><a class="dropdown-item" href="{% url 'home' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="user-info text-center">
+{#            <img src="{{ user.profile.profile_picture.url }}" alt="User Image" class="user-image">#}
+            <p class="username">{{ request.user.username }}</p>
+        </div>
+
+        <nav class="navigation-links">
+            <a href="{% url 'dashboard' %}" class="nav-link active"><i class="bi bi-grid"></i> Dashboard</a>
+            <a href="{% url 'apply_now' %}" class="nav-link"><i class="bi bi-pencil-square"></i> Apply Now</a>
+            <a href="{% url 'view_status' %}" class="nav-link"><i class="bi bi-eye"></i> View Status</a>
+            <a href="{% url 'repay_loan' %}" class="nav-link"><i class="bi bi-cash-stack"></i> Repay Loan</a>
+            <a href="{% url 'generate_employer_form' %}" class="nav-link"><i class="bi bi-cash-stack"></i> Download Agreement</a>
+            <a href="{% url 'FAQ' %}" class="nav-link"><i class="bi bi-cash-stack"></i> FAQ</a>
+        </nav>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="content-area">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p>&copy; 2024 Mara Loans | All rights reserved.</p>
+            <p>Follow us on <a href="#" class="text-light">Facebook</a> | <a href="#" class="text-light">Twitter</a> | <a href="#" class="text-light">Instagram</a></p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Ensure the sidebar is always fixed on the page
+    const sidebar = document.querySelector('.sidebar');
+
+    // Add an event listener to ensure the sidebar is always fixed (even when the user clicks links)
+    document.addEventListener("DOMContentLoaded", function () {
+        // Check if the window width is larger than 768px (for desktop devices)
+        if (window.innerWidth > 768) {
+            // Set the sidebar to be fixed to the left
+            sidebar.style.position = "fixed";
+            sidebar.style.top = "0";
+            sidebar.style.left = "0";
+            sidebar.style.height = "100%";
+        }
+    });
+
+    // Ensure the sidebar remains fixed on page resize
+    window.addEventListener("resize", function() {
+        if (window.innerWidth > 768) {
+            sidebar.style.position = "fixed";
+            sidebar.style.top = "0";
+            sidebar.style.left = "0";
+            sidebar.style.height = "100%";
+        } else {
+            // Reset to default if needed on smaller screens
+            sidebar.style.position = "absolute";
+            sidebar.style.left = "-250px";  // Initially hidden on smaller screens
+        }
+    });
+
+    // Handle hamburger menu functionality
+    const toggleButton = document.getElementById("toggleNavigation");
+    toggleButton.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+    });
+    </script>
+
+</body>
+</html>

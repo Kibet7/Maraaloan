@@ -1,0 +1,807 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #8b96a1;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --btn-green-bg: rgba(6, 141, 152, 0.51);
+    --btn-green-hover: rgba(6, 141, 152, 0.51);
+}
+
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: #333;
+    margin: 0;
+}
+
+
+body, html {
+    min-height: 100%;
+}
+
+
+/* Headers */
+h1, h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Containers */
+.container, .container-fluid {
+    margin-bottom: 30px;
+    padding: 15px;
+}
+
+.container-fluid {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--btn-green-bg);
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.custom-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.custom-input:focus {
+    border-color: var(--btn-green-bg);
+    box-shadow: 0 0 5px rgba(6, 141, 152, 0.51);
+}
+
+.custom-input::placeholder {
+    color: #888;
+}
+
+/* Buttons */
+.btn-green {
+    background-color: var(--btn-green-bg);
+    border-color: var(--btn-green-bg);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-green:hover {
+    background-color: var(--btn-green-hover);
+    border-color: var(--btn-green-hover);
+    box-shadow: 0 0 5px rgba(6, 141, 152, 0.51);
+}
+
+.btn-green:disabled {
+    background-color: #c8e6c9;
+    border-color: #c8e6c9;
+    color: #b2dfdb;
+    cursor: not-allowed;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Carousel */
+.carousel-inner img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.5rem;
+    }
+
+    .carousel-caption p {
+        font-size: 1rem;
+    }
+}
+/* Navbar Customization */
+.navbar {
+    background-color: var(--primary-color); /* Consistent with your CSS variables */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    height: 90px;
+    width: 100%;
+    background-size: 100px;
+}
+
+.navbar-brand img {
+    max-height: 30px;
+    transition: transform 0.3s ease;
+    margin-right: 50px;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text for links */
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 5px; /* Rounded hover effect */
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #f8f9fa;
+}
+
+.contact-btn {
+    background-color: var(--btn-green-bg);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: var(--btn-green-hover);
+    box-shadow: 0 0 8px rgba(6, 141, 152, 0.51);
+}
+
+/* Mobile Menu Customization */
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Subtle border for toggle button */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba%280, 0, 0, 0.5%29' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.collapse.navbar-collapse {
+    justify-content: flex-end; /* Align links to the right */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column; /* Stack menu items on smaller screens */
+        text-align: center;
+    }
+
+    .navbar-nav .nav-link {
+        margin: 5px 0; /* Add spacing between stacked links */
+    }
+}
+.contact-btn {
+    background-color: rgba(6, 141, 152, 0.51); /* Set background to aqua */
+    color: #333; /* Dark text for better contrast */
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-btn:hover {
+    background-color: rgba(6, 141, 152, 0.51); /* Darker aqua on hover */
+    box-shadow: 0 0 4px rgba(0, 206, 209, 0.5); /* Subtle glow effect */
+}
+
+
+/* Reduce navbar height */
+.navbar {
+     height: 12vh;
+
+
+
+
+}
+
+/* Increase font size of navbar links */
+.navbar .nav-link {
+    font-size: 1.1rem; /* Increase font size */
+    padding-top: 35px;
+}
+
+/* Optional: Modify navbar brand size */
+.navbar .navbar-brand img {
+    height: 75px; /* Adjust logo height if needed */
+    width: auto;
+    margin-right: 50px;
+}
+
+/* Carousel: Increase size */
+.carousel-inner img {
+    width: 100%;
+    max-height: 500px;  /* Increase the max height of the carousel */
+    object-fit: cover;
+}
+
+/* Form Container: Increase size */
+.form-container {
+    max-width: 400px;  /* Increase the max width of the form */
+    padding: 40px;     /* Increase padding for more space inside the form */
+}
+
+/* Register button: Aqua background */
+.btn-register {
+    background-color: rgba(6, 141, 152, 0.51);  /* Aqua background */
+    border-color: rgba(6, 141, 152, 0.51);      /* Aqua border */
+    color: white;                /* White text */
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: rgba(6, 141, 152, 0.51);  /* Darker shade on hover */
+    border-color: rgba(6, 141, 152, 0.51);      /* Darker shade on hover */
+    box-shadow: 0 0 5px rgba(6, 141, 152, 0.51);
+}
+
+
+.carousel-caption {
+    color: white !important;
+}
+
+
+/* Ensure body and html take full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* Flexbox layout for the body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensure the body takes at least the full height of the viewport */
+}
+
+/* Ensure footer sticks at the bottom */
+footer {
+    margin-top: auto;  /* Push footer to the bottom */
+}
+
+
+/* Aqua font color for Contact and About links */
+.navbar .nav-item .nav-link {
+    color: white;  /* Default color */
+}
+
+.navbar .nav-item .nav-link[href*="contact"],
+.navbar .nav-item .nav-link[href*="about"] {
+    color: rgba(6, 141, 152, 0.51);  /* Aqua color for Contact and About links */
+}
+
+/* Ensure the color stays when hovering */
+.navbar .nav-item .nav-link:hover {
+    color: rgba(6, 141, 152, 0.51);  /* Light aqua color on hover */
+}
+
+
+/* Aqua Color for Specific Headings */
+.text-aqua {
+    color: rgba(6, 141, 152, 0.51);  /* Aqua color */
+}
+
+/* Background Color for About Section */
+.about-section {
+    background-color: #f0f8ff; /* Light background for About section */
+    padding: 40px 0;
+}
+
+/* Background Color for Contact Section */
+.contact-container {
+    background-color: #e0f7fa; /* Light cyan background for Contact section */
+    padding: 40px 0;
+}
+
+/* Smaller Contact Form */
+.contact-container form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom Styling for Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #6a3d3d;
+    color: white;
+    text-align: center;
+    padding: 1px 0;
+    margin-top: 30px;
+}
+
+/* Hover effect for social media links */
+.social-icon:hover {
+    color: rgba(6, 141, 152, 0.51);
+    transition: color 0.3s ease;
+}
+
+
+/* Ensuring the main content has enough space for the footer */
+body {
+    padding-bottom: 80px; /* Add padding to prevent footer from overlapping content */
+}
+
+/* Styling for Social Media Icons */
+.social-links {
+    display: flex;
+    justify-content: space-evenly; /* Centers icons horizontally */
+    padding: 3px 0;
+}
+
+.social-icon {
+    font-size: 30px; /* Adjust icon size */
+    color: rgba(6, 141, 152, 0.51); /* White color */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Space between icons */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for social icons */
+.social-icon:hover {
+    color: rgba(6, 141, 152, 0.51); /* Aqua color on hover */
+}
+
+/* Footer styling to limit its height */
+footer {
+    height: 12vh; /* Set height to 10% of the viewport */
+    padding: 10px 0; /* Add some padding for the content inside */
+    background-color: #333; /* Set a background color */
+    color: white; /* Set the text color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+   margin-top: 10px;
+}
+
+footer p, footer a {
+    font-size: 14px; /* Optional: Reduce font size */
+    margin: 0; /* Remove margins */
+}
+
+footer a {
+    color: white; /* White text color for links */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: rgba(6, 141, 152, 0.51); /* Hover effect on links */
+}
+
+/* Styling for About Section */
+.about-section {
+    padding: 60px 0;
+}
+
+.about-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-section h3 {
+    font-size: 2rem;
+    color: rgba(6, 141, 152, 0.51);
+    margin-bottom: 15px;
+}
+
+.about-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.about-section ul li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+/* Contact Section Styling */
+.contact-section {
+    padding: 60px 0;
+    background-color: #f0f8ff; /* Light aqua background */
+}
+
+.contact-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: rgba(6, 141, 152, 0.51);
+}
+
+.contact-section h3 {
+    font-size: 2rem;
+    color: rgba(6, 141, 152, 0.51);
+    margin-bottom: 15px;
+}
+
+.contact-section .social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-section .social-icon {
+    font-size: 1.5rem;
+    color: rgba(6, 141, 152, 0.51);
+    transition: color 0.3s ease;
+}
+
+.contact-section .social-icon:hover {
+    color: #008B8B;
+}
+
+.contact-section .form-label {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.contact-section .form-control {
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-section .btn-custom {
+    background-color: rgba(6, 141, 152, 0.51);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+}
+
+.contact-section .btn-custom:hover {
+    background-color: #008B8B;
+    color: white;
+}
+/* Apply box styles to each step */
+.apply-step-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.apply-step-box:hover {
+    transform: scale(1.02);
+}
+
+/* Trusted boxes styling */
+.trusted-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.trusted-box:hover {
+    transform: scale(1.05);
+}
+
+
+/* Trusted, Apply Steps, Review Boxes */
+.trusted-box, .apply-step-box, .review-box {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.trusted-box:hover, .apply-step-box:hover, .review-box:hover {
+    transform: scale(1.05);
+}
+
+/* Carousel Styling */
+.carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icon {
+    font-size: 30px;
+    color: rgba(6, 141, 152, 0.51);
+}
+
+.social-icon:hover {
+    color: rgba(6, 141, 152, 0.51);
+}
+
+/* Contact Form Styling */
+form input, form textarea {
+    border-radius: 5px;
+}
+
+form button {
+    border-radius: 5px;
+    background-color: rgba(6, 141, 152, 0.51);
+    color: #fff;
+    border: none;
+}
+
+form button:hover {
+    background-color: rgba(6, 141, 152, 0.51);
+}
+
+
+/* About Us Section Styling */
+.about-section h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.about-section .icon {
+    font-size: 1.5rem;
+    color: rgba(6, 141, 152, 0.51);
+}
+
+.team-member img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.team-member img:hover {
+    transform: scale(1.1);
+}
+
+/* Hover effect on icons and values */
+.about-section .d-flex i {
+    color: rgba(6, 141, 152, 0.51);
+    transition: transform 0.3s;
+}
+
+.about-section .d-flex i:hover {
+    transform: scale(1.1);
+}
+
+/* Call to Action Button */
+.about-section .btn {
+    background-color: rgba(6, 141, 152, 0.51);
+    color: #fff;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+.about-section .btn:hover {
+    background-color: rgba(6, 141, 152, 0.51);
+}
+
+
+/* FAQ Page Styling */
+    .faq-container {
+        padding: 50px 20px;
+        background-color: #f2f7fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-container h1 {
+        text-align: center;
+        color: #006666;
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .faq-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-5px); /* Hover effect */
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00796b;
+        cursor: pointer;
+    }
+
+    .faq-answer {
+        padding-top: 15px;
+        color: #555;
+        font-size: 16px;
+        display: none;
+        padding-left: 20px;
+    }
+/* Content-specific Styles for Loans Page */
+
+/* Container with padding */
+.container.my-5 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+/* Heading Styles */
+h1.text-center {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: rgba(6, 141, 152, 0.51); /* Adjust to your brand color */
+}
+
+h3.loan-heading {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+h4.benefits-title {
+    font-size: 1.8rem;
+    color: rgba(6, 141, 152, 0.51); /* Green color for emphasis */
+    font-weight: bold;
+}
+
+/* Paragraph description */
+p.loan-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Benefits List */
+.benefits-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.benefits-list li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #333;
+    padding-left: 20px;
+    position: relative;
+}
+
+.benefits-list li::before {
+    content: '\2022'; /* Bullet point */
+    color: rgba(6, 141, 152, 0.51); /* Green for bullet */
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+}
+
+/* Apply Now Button */
+.btn-apply-now {
+    background-color: rgba(6, 141, 152, 0.51);
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.btn-apply-now:hover {
+    background-color: rgba(6, 141, 152, 0.51);
+    text-decoration: none;
+}
+
+/* Image Styling */
+.loan-image {
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    h1.text-center {
+        font-size: 2.5rem;
+    }
+
+    h3.loan-heading {
+        font-size: 1.8rem;
+    }
+
+    p.loan-description {
+        font-size: 1rem;
+    }
+
+    .benefits-list li {
+        font-size: 1rem;
+    }
+
+    .btn-apply-now {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Stack the layout vertically on smaller screens */
+    .row {
+        display: block;
+    }
+
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .loan-image {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+
+

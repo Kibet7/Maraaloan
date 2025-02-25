@@ -1,0 +1,60 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+<h1 class="text-center my-4">Repay Loan</h1>
+<p class="text-center">Repay your loan with ease or provide employer details for automatic deductions.</p>
+
+<div class="container">
+    <div class="row">
+        <!-- Loan Repayment Form -->
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3 class="card-title text-white text-center py-2" style="background-color: aqua;">Repay Your Loan</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_name">Name</label>
+                        {{ repayment_form.name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_amount">Amount</label>
+                        {{ repayment_form.amount }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_phone_number">Phone Number</label>
+                        {{ repayment_form.phone_number }}
+                    </div>
+                    <button type="submit" class="btn btn-block btn-aqua">Repay Now</button>
+                </form>
+                {% if error %}
+                <div class="alert alert-danger mt-3">
+                    {{ error }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Employer Agreement Form -->
+        <div class="col-md-6">
+            <div class="card p-4">
+                <h3 class="card-title text-white text-center py-2" style="background-color: aqua;">Employer Agreement</h3>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_employer_name">Employer Name</label>
+                        {{ employer_form.employer_name }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_employer_contact">Employer Contact</label>
+                        {{ employer_form.employer_contact }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_agreement_file">Agreement File</label>
+                        {{ employer_form.agreement_file }}
+                    </div>
+                    <button type="submit" class="btn btn-block btn-aqua">Submit Agreement</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

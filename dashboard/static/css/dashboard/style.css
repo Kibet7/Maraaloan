@@ -1,0 +1,990 @@
+/* General Reset */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Top Bar Styling */
+.top-bar {
+    background-color: #bfbcbc;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    background: transparent;
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 4px 0;
+    background-color: #333;
+}
+
+/* Home Icon */
+.home-icon {
+    font-size: 1rem;
+    text-decoration: none;
+    color: aqua;
+    display: flex;
+    align-items: center;
+}
+
+.home-icon i {
+    margin-left: 20px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background-color: aqua;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: aqua;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially off-screen */
+    height: 100%;
+    padding-top: 80px; /* Space for top bar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+}
+
+.sidebar.active {
+    left: 0; /* Show the sidebar */
+}
+
+.sidebar .user-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar .user-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.sidebar .username {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Navigation Links */
+.navigation-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.navigation-links .nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 10px;
+    margin: 1px 0;
+    background-color: #f1f1f1;
+    border-radius: 1px;
+    width: 90%;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.navigation-links .nav-link:hover {
+    background-color: #605f5f;
+    color: white;
+}
+
+/* Content Area Styling */
+.content-area {
+    margin-left: 250px;
+    padding: 20px;
+    padding-top: 80px; /* Space for fixed top bar */
+    width: calc(100% - 250px);
+    transition: margin-left 0.3s ease;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 10px 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        height: 100%;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .content-area {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navigation-links .nav-link {
+        padding: 10px;
+    }
+}
+
+/* Mobile Toggle */
+@media (max-width: 768px) {
+    .home-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Dashboard Styling */
+.dashboard-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 2rem;
+    color: #00ffff;
+}
+
+.primary-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    background-color: #00ffff;
+}
+
+/* Slider Styling */
+.slider-container {
+    position: relative;
+    margin-top: 20px;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slide {
+    min-width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide:hover {
+    filter: brightness(85%);
+    cursor: pointer;
+}
+
+/* Slider Text */
+.slide-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Slider Controls */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.slider-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.slider-controls button:hover {
+    background: #00ffff;
+}
+
+/* Cards Section */
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #00ffff;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* General styles for the application form */
+.application-form-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.application-form h1 {
+    font-size: 2rem;
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+.application-form p {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Form field styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #00ffff;
+    outline: none;
+}
+
+textarea.form-control {
+    resize: vertical;
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #00ffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .application-form-container {
+        padding: 15px;
+    }
+
+    .application-form h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+/* View Status Page */
+.status-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.status-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.status-text {
+    font-weight: bold;
+    color: #00ffff;
+}
+
+.status-actions {
+    margin-top: 20px;
+}
+
+.status-actions .btn {
+    margin: 5px;
+}
+
+
+
+/* Loan Repayment Form Styling */
+.loan-repayment-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #e3f2fd; /* Light blue */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.loan-repayment-form h3 {
+    color: #00ffff;
+}
+
+.loan-repayment-form .form-group label {
+    color: #333;
+}
+
+/* Employer Agreement Form Styling */
+.employer-agreement-form {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light gray */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employer-agreement-form h3 {
+    color: #6c757d; /* Grayish color */
+}
+
+.employer-agreement-form .form-group label {
+    color: #555;
+}
+
+/* General Form Styling */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    border-color: #00ffff;
+    outline: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #00ffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #00ffff;
+}
+
+/* Aqua Button Styling */
+.btn-aqua {
+    background-color: aqua;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-aqua:hover {
+    background-color: #008c8c; /* Darker aqua */
+    transform: scale(1.05);   /* Slightly enlarge the button */
+    color: white;
+}
+
+/*  employer agreement success */
+.alert-success {
+    background-color: #d4edda;
+    color: #032020;
+    border-color: #c3e6cb;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.alert h1 {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+
+.alert a.btn {
+    background-color: #00ffff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+}
+
+.alert a.btn:hover {
+    background-color: #00ffff;
+    color: white;
+}
+
+
+/* Application Form Styles */
+.application-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.application-form h1 {
+    color: #00ffff;
+}
+
+.application-form .form-group {
+    margin-bottom: 20px;
+}
+
+.application-form .form-control {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.application-form .btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.application-form .btn-primary {
+    background-color: #00ffff;
+    border: none;
+}
+
+.application-form .btn-primary:hover {
+    background-color: #00ffff;
+}
+
+.application-form .btn-success {
+    background-color: #00ffff;
+    border: none;
+}
+
+.application-form .btn-success:hover {
+    background-color: aqua;
+}
+/* Additional Styling for Submit Button */
+#submit-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    width: 100%;
+    background-color: aqua;
+    border: none;
+    cursor: not-allowed;
+}
+
+#submit-btn:enabled {
+    cursor: pointer;
+    background-color: aqua;
+}
+/* Sidebar Styling */
+.sidebar {
+    background-color: aqua;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 80px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease-in-out;
+    z-index: 999;
+}
+
+/* Sidebar in hidden state */
+.sidebar.active {
+    left: 0;  /* Show the sidebar */
+}
+
+/* Hamburger Button Styling */
+.hamburger-menu {
+    display: block;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.3s ease-in-out;
+}
+
+/* Search and Dropdown Buttons Styling */
+.search-button,
+.dropdown-toggle {
+    background-color: aqua;
+}
+
+/* Media Query for Small Screens (mobile/tablet) */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        position: absolute;
+        left: -250px;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar {
+        width: 200px;
+    }
+}
+ /* General Styles */
+    .dashboard-container {
+        padding: 20px;
+    }
+ /* Background Color */
+    body {
+        background-color: #e0f7fa; /* Light aqua background */
+        font-family: 'Arial', sans-serif;
+    }
+
+    /* Header Section */
+    .dashboard-header {
+        background-color: #00bcd4; /* Aqua */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Video Banner Section */
+    .video-banner {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .video-bg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(50%);
+    }
+
+    .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+    .primary-btn {
+        background-color: #00bcd4; /* Aqua */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .primary-btn:hover {
+        background-color: #0097a7;
+        transform: translateY(-2px); /* Slight lift effect */
+    }
+
+    /* Cards Section */
+    .cards-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+        gap: 20px;
+    }
+
+    .card {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.15);
+        text-align: center;
+        flex: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Hover lift effect */
+        box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .card h3 {
+        color: #006666;
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card p {
+        color: #888;
+    }
+
+    /* Testimonials Section */
+    .testimonials-container {
+        margin-top: 60px;
+    }
+
+    .testimonials-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+        font-size: 28px;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .testimonial {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+        transform: translateY(-5px); /* Hover effect */
+        box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .testimonial img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .testimonial p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .testimonial small {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+        .cards-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            width: 80%;
+        }
+
+        .video-banner {
+            height: 350px;
+        }
+
+        .banner-content h1 {
+            font-size: 24px;
+        }
+
+        .banner-content p {
+            font-size: 16px;
+        }
+    }
+    /* Fade-in animation for elements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.dashboard-container, .card, .testimonial {
+    animation: fadeIn 1s ease-out;
+}
+
+/* FAQ Page Styling */
+    .faq-container {
+        padding: 50px 20px;
+        background-color: #f2f7fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-container h1 {
+        text-align: center;
+        color: #006666;
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .faq-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-5px); /* Hover effect */
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00796b;
+        cursor: pointer;
+    }
+
+    .faq-answer {
+        padding-top: 15px;
+        color: #555;
+        font-size: 16px;
+        display: none;
+        padding-left: 20px;
+    }
+
+    /* For responsive mobile view */
+    @media (max-width: 768px) {
+        .faq-container {
+            padding: 30px 15px;
+        }
+    }
+.aqua-btn {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;  /* Reduced font size by 60% */
+        padding: 6px 12px; /* Reduced padding by 60% */
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+    .aqua-btn:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;  /* Reduced font size by 60% */
+        padding: 6px 12px; /* Reduced padding by 60% */
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .application-form-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* Flexbox for Previous and Next buttons */
+    .button-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* To make buttons smaller */
+    .btn-group button {
+        font-size: 9px;
+        padding: 6px 12px;
+    }
+
+    /* To make submit button aqua */
+    #submit-btn {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+    #submit-btn:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+
+
+    .empty-circle {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0e0e0; /* Light grey background */
+        color: #fff;
+        font-size: 50px; /* Large font for the initial */
+        border-radius: 50%;
+    }
+
+    .empty-circle span {
+        font-weight: bold;
+    }
+
+.profile-picture {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #e0e0e0; /* Default background if no image */
+    }

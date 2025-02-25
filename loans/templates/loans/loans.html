@@ -1,0 +1,29 @@
+<!-- templates/loans/loans.html -->
+{% extends 'loans/layout.html' %}
+
+{% block title %}Loans - Mara Loans{% endblock %}
+{% load static %}
+{% block content %}
+<div class="container my-5">
+    <h1 class="text-center mb-4">mara Finance Loans</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Get a Loan of up to KES 15,000</h3>
+            <p>Mara Loans offers quick and easy loans of up to KES 15,000. To qualify, you must be permanently employed, earn above KES 10,000 per month, have a favorable credit record, and meet affordability criteria.</p>
+            <h4>How You Will Benefit:</h4>
+            <ul>
+                <li>Get a loan of up to KES 15,000</li>
+                <li>Cover incidental monthly expenses</li>
+                <li>Convenient online loan application</li>
+                <li>Quick payout within 24 hours</li>
+                <li>Build a positive credit record</li>
+                <li>Friendly customer support</li>
+            </ul>
+            <a href="{% url 'contact' %}" class="btn btn-success">Apply Now</a>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/img1.jpeg' %}" alt="Rusonik Finance Loan Image" class="img-fluid rounded">
+        </div>
+    </div>
+</div>
+{% endblock %}

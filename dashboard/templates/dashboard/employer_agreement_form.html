@@ -1,0 +1,156 @@
+{% extends "dashboard/layout.html" %}
+{% load static %}
+
+{% block title %}Employer Agreement Form - Rusonik Loans{% endblock %}
+
+{% block styles %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f8f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2, h3 {
+        color: #006666;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .details-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .details-table th,
+    .details-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .details-table th {
+        background-color: #006666;
+        color: white;
+    }
+
+    .btn-container {
+        text-align: center;
+    }
+
+    .btn-primary {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #006666;
+        color: #ffffff;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #004d4d;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        .btn-primary {
+            font-size: 16px;
+            padding: 12px 25px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Employer Agreement Form</h1>
+    <p>
+        To facilitate the loan repayment process, please download and complete the Employer Agreement Form. This form must be signed and stamped by your employer, confirming the authorization for salary deductions for loan repayment.
+    </p>
+
+    <h2>Borrower Details</h2>
+    <table class="details-table">
+        <tr>
+            <th>Full Name</th>
+            <td>{{ user.first_name }} {{ user.last_name }}</td>
+        </tr>
+        <tr>
+            <th>National ID</th>
+            <td>{{ user.profile.national_id }}</td>
+        </tr>
+        <tr>
+            <th>Loan Amount</th>
+            <td>KES {{ loan.amount|floatformat:2 }}</td>
+        </tr>
+        <tr>
+            <th>Repayment Period</th>
+            <td>{{ loan.repayment_period }} months</td>
+        </tr>
+        <tr>
+            <th>Status</th>
+            <td>{{ loan.status }}</td>
+        </tr>
+    </table>
+
+    <h2>Rusonik Loans Payment Details</h2>
+    <table class="details-table">
+        <tr>
+            <th>Bank</th>
+            <th>Account Details</th>
+        </tr>
+        <tr>
+            <td>KCB Bank</td>
+            <td>Account Number: 123456789</td>
+        </tr>
+        <tr>
+            <td>Equity Bank</td>
+            <td>Account Number: 987654321</td>
+        </tr>
+        <tr>
+            <td>Paybill</td>
+            <td>123456 (Account Name: Mara Loans)</td>
+        </tr>
+    </table>
+
+    <h2>Employer Instructions</h2>
+    <p>
+        The employer must provide the following information in the form:
+    </p>
+    <ul>
+        <li>Employer Name</li>
+        <li>Employee Status (Permanent/Contract)</li>
+        <li>Trustworthiness of the Employee</li>
+        <li>Expected Period of Continued Employment</li>
+        <li>HR and Accounts Department Contact Details</li>
+        <li>HR and Accounts Department Signatures and Company Stamp</li>
+    </ul>
+
+    <div class="btn-container">
+        <a href="{% url 'generate_employer_form' %}" class="btn-primary">Download Employer Agreement Form</a>
+    </div>
+</div>
+{% endblock %}

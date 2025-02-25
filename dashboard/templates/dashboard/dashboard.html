@@ -1,0 +1,81 @@
+{% extends "dashboard/layout.html" %}
+{% load static %}
+{% block title %}Rusonik Loans Dashboard{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/dashboard/style.css' %}">
+<style>
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <!-- Header Section -->
+    <header class="dashboard-header">
+        <h1>Welcome to {{ user_name|default:"Mara Loans" }}</h1>
+        <a href="{% url 'apply_now' %}"><button class="primary-btn">Apply for a Loan</button></a>
+    </header>
+
+    <!-- Video Banner Section -->
+    <div class="video-banner">
+        <video autoplay muted loop class="video-bg">
+            <source src="{% static 'images/videobanner.mp4' %}" width="100%" type="video/mp4">
+        </video>
+        <div class="banner-content">
+            <h1>Welcome to {{ business_name|default:"Mara Loans" }}</h1>
+            <p>{{ business_slogan|default:"Your trusted partner for affordable and flexible loans." }}</p>
+            <a href="{% url 'apply_now' %}" class="primary-btn">Start Now</a>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="cards-container">
+        <div class="card">
+            <h3>Total Loans</h3>
+            <p>KES {{ total_loans|default:500000|floatformat:0 }}</p>
+            <p>Total loans issued this month.</p>
+        </div>
+        <div class="card">
+            <h3>Repaid Loans</h3>
+            <p>KES {{ repaid_loans|default:300000|floatformat:0 }}</p>
+            <p>Loans successfully repaid.</p>
+        </div>
+        <div class="card">
+            <h3>Pending Loans</h3>
+            <p>KES {{ pending_loans|default:200000|floatformat:0 }}</p>
+            <p>Loans yet to be repaid.</p>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-container">
+        <h2>User Testimonials</h2>
+        <div class="testimonials-grid">
+            {% if testimonials %}
+                {% for testimonial in testimonials %}
+                <div class="testimonial">
+                    <img src="{{ testimonial.image_url }}" alt="User Photo">
+                    <p>"{{ testimonial.comment }}"</p>
+                    <small>- {{ testimonial.name }}</small>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="testimonial">
+                    <img src="{% static 'images/prof1.jpg' %}" alt="User Photo">
+                    <p>"Rusonik Loans helped me expand my business with their quick and easy application process!"</p>
+                    <small>- Jane Onyango</small>
+                </div>
+                <div class="testimonial">
+                    <img src="{% static 'images/prof2.jpg' %}" alt="User Photo">
+                    <p>"I love the flexible repayment options. Highly recommend Mara Loans!"</p>
+                    <small>- John Korir</small>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/dashboard/scripts.js' %}"></script>
+{% endblock %}

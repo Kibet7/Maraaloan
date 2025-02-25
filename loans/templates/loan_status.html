@@ -1,0 +1,57 @@
+{% extends "dashboard/layout.html" %}
+{% block title %}View Status{% endblock %}
+
+{% block content %}
+<div class="status-container">
+    <h1 class="display-5">View Status</h1>
+    <p>Check the status of your loan application.</p>
+
+    <div class="status-card">
+        <h2>Status: 
+            <span class="status-text">
+                {% if loan_status.status == "Approved" %}
+                    Congratulations! Your loan application is a success.
+                {% elif loan_status.status == "No Application" %}
+                    You haven't applied for any loan yet.
+                {% else %}
+                    {{ loan_status.status }}
+                {% endif %}
+            </span>
+        </h2>
+        
+        {% if loan_status.status != "No Application" %}
+            <p>Current Stage: <strong>{{ loan_status.stage }}</strong></p>
+            <p>Remarks: <em>{{ loan_status.remarks|safe }}</em></p>
+
+            {% if loan_status.show_till %}
+            <div class="processing-fee">
+                <p>The payment is exactly <strong>250</strong> and should be paid to the following till number:</p>
+                <p class="till-number">
+                    <strong>3133426</strong> 
+                    <button onclick="copyTill()">Copy Till</button>
+                </p>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <div class="status-actions">
+        {% if loan_status.status == "No Application" %}
+            <a href="{% url 'apply_now' %}" class="btn btn-primary">Apply for Loan</a>
+        {% else %}
+            <a href="{% url 'dashboard' %}" class="btn btn-success">Go to Dashboard</a>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+function copyTill() {
+    navigator.clipboard.writeText("3133426").then(function() {
+        alert("Till number copied to clipboard!");
+    }, function(err) {
+        alert("Failed to copy till number.");
+    });
+}
+</script>
+
+{% endblock %}

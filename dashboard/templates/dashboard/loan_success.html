@@ -1,0 +1,8 @@
+{% extends "dashboard/layout.html" %}
+{% block content %}
+  <div class="success-container">
+      <h1>Loan Application Submitted Successfully</h1>
+      <p>Thank you for applying. Our team will review your application and get back to you shortly.</p>
+      <a href="{% url 'apply_for_loan' %}">Apply for another loan</a>
+  </div>
+{% endblock %}

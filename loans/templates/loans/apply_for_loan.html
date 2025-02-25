@@ -1,0 +1,44 @@
+<!-- templates/loan/apply_for_loan.html -->
+{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Loan - Loan Application</title>
+    <!-- Load static files -->
+    {% load static %}
+    <!-- Link to the external CSS file -->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <!-- Optional: Add Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Apply for a Loan</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="loan_amount" class="form-label">Loan Amount</label>
+                    {{ form.loan_amount|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                    <label for="purpose" class="form-label">Purpose</label>
+                    {{ form.purpose|add_class:"form-control" }}
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Submit Application</button>
+                </div>
+            </form>
+            <br>
+            <div class="text-center">
+                <a href="{% url 'loan_status' %}" class="btn btn-link">View Loan Status</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional: Add Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
