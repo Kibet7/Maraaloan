@@ -128,7 +128,7 @@ body {
 }
 
 .navigation-links .nav-link:hover {
-    background-color: #f31818;
+    background-color: #605f5f;
     color: white;
 }
 
@@ -201,21 +201,21 @@ body {
 
 .dashboard-header h1 {
     font-size: 2rem;
-    color: #007bff;
+    color: #00ffff;
 }
 
 .primary-btn {
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #00ffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .primary-btn:hover {
-    background-color: #0056b3;
+    background-color: #00ffff;
 }
 
 /* Slider Styling */
@@ -274,7 +274,7 @@ body {
 }
 
 .slider-controls button:hover {
-    background: #007bff;
+    background: #00ffff;
 }
 
 /* Cards Section */
@@ -296,7 +296,7 @@ body {
 .card h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #007bff;
+    color: #00ffff;
 }
 
 .card p {
@@ -316,7 +316,7 @@ body {
 
 .application-form h1 {
     font-size: 2rem;
-    color: #007bff;
+    color: #00ffff;
     margin-bottom: 20px;
 }
 
@@ -346,7 +346,7 @@ body {
 }
 
 .form-control:focus {
-    border-color: #007bff;
+    border-color: #00ffff;
     outline: none;
 }
 
@@ -359,14 +359,14 @@ textarea.form-control {
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #00ffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #00ffff;
 }
 
 /* Responsive Design */
@@ -410,7 +410,7 @@ textarea.form-control {
 
 .status-text {
     font-weight: bold;
-    color: #007bff;
+    color: #00ffff;
 }
 
 .status-actions {
@@ -433,7 +433,7 @@ textarea.form-control {
 }
 
 .loan-repayment-form h3 {
-    color: #007bff;
+    color: #00ffff;
 }
 
 .loan-repayment-form .form-group label {
@@ -477,7 +477,7 @@ textarea.form-control {
 }
 
 .form-control:focus {
-    border-color: #007bff;
+    border-color: #00ffff;
     outline: none;
 }
 
@@ -485,14 +485,14 @@ textarea.form-control {
     padding: 10px 20px;
     font-size: 1rem;
     color: #fff;
-    background-color: #007bff;
+    background-color: #00ffff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #00ffff;
 }
 
 /* Aqua Button Styling */
@@ -516,7 +516,7 @@ textarea.form-control {
 /*  employer agreement success */
 .alert-success {
     background-color: #d4edda;
-    color: #155724;
+    color: #032020;
     border-color: #c3e6cb;
     border-radius: 4px;
     padding: 20px;
@@ -524,11 +524,11 @@ textarea.form-control {
 
 .alert h1 {
     font-size: 2.5rem;
-    color: #155724;
+    color: #00ffff;
 }
 
 .alert a.btn {
-    background-color: #28a745;
+    background-color: #00ffff;
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -536,7 +536,7 @@ textarea.form-control {
 }
 
 .alert a.btn:hover {
-    background-color: #218838;
+    background-color: #00ffff;
     color: white;
 }
 
@@ -552,7 +552,7 @@ textarea.form-control {
 }
 
 .application-form h1 {
-    color: #007bff;
+    color: #00ffff;
 }
 
 .application-form .form-group {
@@ -571,35 +571,35 @@ textarea.form-control {
 }
 
 .application-form .btn-primary {
-    background-color: #007bff;
+    background-color: #00ffff;
     border: none;
 }
 
 .application-form .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #00ffff;
 }
 
 .application-form .btn-success {
-    background-color: #28a745;
+    background-color: #00ffff;
     border: none;
 }
 
 .application-form .btn-success:hover {
-    background-color: #218838;
+    background-color: aqua;
 }
 /* Additional Styling for Submit Button */
 #submit-btn {
     padding: 12px 30px;
     font-size: 16px;
     width: 100%;
-    background-color: #28a745;
+    background-color: aqua;
     border: none;
     cursor: not-allowed;
 }
 
 #submit-btn:enabled {
     cursor: pointer;
-    background-color: #218838;
+    background-color: aqua;
 }
 /* Sidebar Styling */
 .sidebar {
@@ -658,88 +658,333 @@ textarea.form-control {
         width: 200px;
     }
 }
- .slider-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        height: 400px; /* Set consistent height */
-        margin-bottom: 30px;
+ /* General Styles */
+    .dashboard-container {
+        padding: 20px;
+    }
+ /* Background Color */
+    body {
+        background-color: #e0f7fa; /* Light aqua background */
+        font-family: 'Arial', sans-serif;
     }
 
-    .slider .slide {
-        position: absolute;
-        top: 0;
-        left: 0;
+    /* Header Section */
+    .dashboard-header {
+        background-color: #00bcd4; /* Aqua */
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Video Banner Section */
+    .video-banner {
+        position: relative;
+        height: 450px;
+        overflow: hidden;
+        border-radius: 15px;
+    }
+
+    .video-bg {
         width: 100%;
         height: 100%;
-        background-size: cover;
-        background-position: center;
-        transition: transform 0.5s ease-in-out;
+        object-fit: cover;
+        filter: brightness(50%);
     }
 
-    .slider .slide-text {
+    .banner-content {
         position: absolute;
-        bottom: 20%;
-        left: 10%;
-        color: #fff;
-        background: rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .slider-controls {
-        position: absolute;
-        bottom: 10px;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        gap: 10px;
-    }
-
-    .prev-btn, .next-btn {
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
         background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        border: none;
-        padding: 10px;
-        cursor: pointer;
-        border-radius: 50%;
+        padding: 30px;
+        border-radius: 10px;
     }
 
-    .testimonials-container, .calculator-container {
+    .primary-btn {
+        background-color: #00bcd4; /* Aqua */
+        color: white;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        box-shadow: 0 4px 8px rgba(0, 188, 212, 0.2);
+        transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .primary-btn:hover {
+        background-color: #0097a7;
+        transform: translateY(-2px); /* Slight lift effect */
+    }
+
+    /* Cards Section */
+    .cards-container {
+        display: flex;
+        justify-content: space-around;
         margin-top: 40px;
+        gap: 20px;
     }
 
-    .testimonials-container h2, .calculator-container h2 {
+    .card {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.15);
+        text-align: center;
+        flex: 1;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* Hover lift effect */
+        box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .card h3 {
+        color: #006666;
+        margin-bottom: 15px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .card p {
+        color: #888;
+    }
+
+    /* Testimonials Section */
+    .testimonials-container {
+        margin-top: 60px;
+    }
+
+    .testimonials-container h2 {
         text-align: center;
         margin-bottom: 20px;
         color: #333;
+        font-size: 28px;
+    }
+
+    .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
     }
 
     .testimonial {
-        margin: 20px 0;
-        padding: 20px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
         background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .loan-calculator {
+    .testimonial:hover {
+        transform: translateY(-5px); /* Hover effect */
+        box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+    }
+
+    .testimonial img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .testimonial p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 12px;
+    }
+
+    .testimonial small {
+        font-weight: bold;
+        color: #333;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+        .cards-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            width: 80%;
+        }
+
+        .video-banner {
+            height: 350px;
+        }
+
+        .banner-content h1 {
+            font-size: 24px;
+        }
+
+        .banner-content p {
+            font-size: 16px;
+        }
+    }
+    /* Fade-in animation for elements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.dashboard-container, .card, .testimonial {
+    animation: fadeIn 1s ease-out;
+}
+
+/* FAQ Page Styling */
+    .faq-container {
+        padding: 50px 20px;
+        background-color: #f2f7fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-container h1 {
+        text-align: center;
+        color: #006666;
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .faq-item {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .faq-item:hover {
+        transform: translateY(-5px); /* Hover effect */
+    }
+
+    .faq-question {
+        font-size: 18px;
+        font-weight: bold;
+        color: #00796b;
+        cursor: pointer;
+    }
+
+    .faq-answer {
+        padding-top: 15px;
+        color: #555;
+        font-size: 16px;
+        display: none;
+        padding-left: 20px;
+    }
+
+    /* For responsive mobile view */
+    @media (max-width: 768px) {
+        .faq-container {
+            padding: 30px 15px;
+        }
+    }
+.aqua-btn {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;  /* Reduced font size by 60% */
+        padding: 6px 12px; /* Reduced padding by 60% */
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+    .aqua-btn:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;  /* Reduced font size by 60% */
+        padding: 6px 12px; /* Reduced padding by 60% */
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .application-form-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    /* Flexbox for Previous and Next buttons */
+    .button-group {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         align-items: center;
     }
 
-    .loan-calculator input, .loan-calculator button {
-        margin: 10px 0;
-        padding: 10px;
-        width: 100%;
-        max-width: 300px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+    /* To make buttons smaller */
+    .btn-group button {
+        font-size: 9px;
+        padding: 6px 12px;
     }
 
-    .loan-calculator button {
-        background: #4CAF50;
+    /* To make submit button aqua */
+    #submit-btn {
+        background-color: aqua;
+        color: black;
+        font-size: 9px;
+        padding: 6px 12px;
+        border-radius: 5px;
+        border: 1px solid aqua;
+        transition: background-color 0.3s ease;
+    }
+    #submit-btn:hover {
+        background-color: #00b8b8;
+        color: white;
+    }
+
+
+
+    .empty-circle {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #e0e0e0; /* Light grey background */
         color: #fff;
-        cursor: pointer;
+        font-size: 50px; /* Large font for the initial */
+        border-radius: 50%;
+    }
+
+    .empty-circle span {
+        font-weight: bold;
+    }
+
+.profile-picture {
+        width: 150px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: #e0e0e0; /* Default background if no image */
     }
