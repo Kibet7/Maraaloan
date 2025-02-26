@@ -1,7 +1,8 @@
 #!/bin/bash
 
-# Install dependencies inside the Vercel environment
-pip install -r requirements.txt
+# Upgrade pip and install dependencies
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
 
 # Apply migrations
 python3 manage.py migrate --noinput
